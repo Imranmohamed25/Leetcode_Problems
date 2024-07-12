@@ -1,0 +1,27 @@
+import java.util.*;
+public class Solution {
+    public static int[] intersect(int[] nums1, int[] nums2) {
+        ArrayList<Integer> res = new ArrayList<>();
+        for(int i = 0; i < nums1.length; i++){
+            for(int j =0; j < nums2.length; j++){
+                if(nums1[i] == nums2[j]){
+                    res.add(nums2[j]);
+                    nums2[j] = -1;
+                    break;
+                }
+            }
+        }
+        int[] arr = new int[res.size()];
+        for(int i = 0; i < res.size(); i++){
+            System.out.print(arr[i] = res.get(i));
+        }
+
+        return arr;
+    }
+   
+   public static void main(String args[]){
+      int[] nums1 = {1,2,2,1};
+      int[] nums2 = {2,2};
+      intersect(nums1, nums2);
+   }
+}
