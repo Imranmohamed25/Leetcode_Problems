@@ -2,6 +2,7 @@ class Solution {
     public boolean backspaceCompare(String s, String t) {
         Stack<Character> S = new Stack<>();
         Stack<Character> T = new Stack<>();
+
         for (int i = 0; i < s.length(); i++) {
             if (Character.isLetter(s.charAt(i))) {
                 S.push(s.charAt(i));
@@ -9,6 +10,7 @@ class Solution {
                 S.pop();
             }
         }
+
         for (int i = 0; i < t.length(); i++) {
             if (Character.isLetter(t.charAt(i))) {
                 T.push(t.charAt(i));
