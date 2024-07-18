@@ -1,0 +1,29 @@
+class Solution {
+    public String reformatDate(String date) {
+        String[] day = {"","1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th", "13th", "14th", "15th", "16th", "17th", "18th", "19th", "20th", "21st", "22nd", "23rd", "24th", "25th", "26th", "27th", "28th", "29th", "30th", "31st"};
+        String[] month = {"","Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+
+        String[] arr = date.split(" ");
+        String str = "";
+        str += arr[arr.length - 1] + "-";
+
+        for(int i = 0; i < month.length; i++){
+            if(month[i].equals(arr[1])){
+                if(i <= 9){
+                    str += '0';
+                }
+                str += i + "-";
+            }
+        }
+
+        for(int i = 0; i < day.length; i++){
+            if(day[i].equals(arr[0])){
+                if(i <= 9){
+                    str += '0';
+                }
+                str += i;
+            }
+        }
+        return str;
+    }
+}
