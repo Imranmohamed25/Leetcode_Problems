@@ -1,0 +1,28 @@
+class Solution {
+    public int maxDivScore(int[] nums, int[] divisors) {
+        Arrays.sort(divisors);
+        int[] score = new int[divisors.length];
+        for(int i = 0; i < nums.length; i++){
+            for(int j = 0; j < divisors.length; j++){
+                if(nums[i] % divisors[j] == 0){
+                    score[j]++;
+                }
+            }
+        }
+        int max = score[0];
+        int res = divisors[0];
+        for(int i = 0; i < score.length; i++){
+            if(max < score[i]){
+                max = score[i];
+                res = divisors[i];
+            }
+        }
+        System.out.println(res);
+        return res;
+    }
+}
+/*
+        for(int i: score){
+            System.out.print(i + " ");
+        }
+*/
