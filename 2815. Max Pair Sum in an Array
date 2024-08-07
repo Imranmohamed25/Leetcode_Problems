@@ -1,0 +1,30 @@
+class Solution {
+    public int maxSum(int[] nums) {
+        ArrayList<Integer> digit = new ArrayList<>();
+        for (int i = 0; i < nums.length; i++) {
+            int n = nums[i];
+            int max = 0;
+            while (n > 0) {
+                int rem = n % 10;
+                if (rem > max) {
+                    max = rem;
+                }
+                n = n / 10;
+            }
+            digit.add(max);
+        }
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int i = 0; i < digit.size(); i++) {
+            for (int j = i + 1; j < digit.size(); j++) {
+                if (digit.get(i).equals(digit.get(j))) {
+                    list.add(nums[i] + nums[j]);
+                }
+            }
+        }
+        if (list.isEmpty()) {
+            return -1;
+        }
+
+        return Collections.max(list);
+    }
+}
